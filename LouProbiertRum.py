@@ -12,8 +12,8 @@ with st.expander("The Dataset"):
   col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.header("A cat")
-    st.image("https://sketch.com.vn/Upload/images/cach-ve-sinh-tam-pin-mat-troi-dung-cach-2%20(3)(1).jpg")
+    st.header("Chrysler Logo")
+    st.image("https://img1.d2cmedia.ca/cb5bf24a74832ba/1471/7214770/C/Chrysler-200-2016.jpg")
 
 with col2:
     st.header("NIKE Shoe")
