@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+st.expander("The Team"):
+st.expander("The Task"):
+st.expander("The Dataset"):
 st.write("""
 # Image Captioning Group 13
 Hello, we are Leon Lang, Jean Luis Fichtner and Loredana Bratu and we are the creators 
@@ -11,6 +14,5 @@ be using Neural Network and Deep Learning Techniques.
 """)
 
 st.write("Here you can swipe through some examples from our Dataset")
-st.slider
 
 st.image('https://img.alicdn.com/imgextra/i3/817462628/O1CN01eLHBGX1VHfUMBA1du_!!817462628.jpg')
