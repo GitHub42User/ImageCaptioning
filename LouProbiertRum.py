@@ -24,5 +24,3 @@ def load_data(nrows):
 
 
 
-
-streamlit run LouProbiertRum.py
