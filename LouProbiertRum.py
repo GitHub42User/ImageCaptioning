@@ -25,4 +25,4 @@ def load_data(nrows):
 
 
 
-streamlit run 1stONE.py
+streamlit run LouProbiertRum.py
