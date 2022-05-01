@@ -16,8 +16,8 @@ with col1:
     st.image("https://static.streamlit.io/examples/cat.jpg")
 
 with col2:
-    st.header("A dog")
-    st.image("https://static.streamlit.io/examples/dog.jpg")
+    st.header("NIKE Shoe")
+    st.image("https://img.alicdn.com/imgextra/i3/817462628/O1CN01eLHBGX1VHfUMBA1du_!!817462628.jpg")
 
 with col3:
     st.header("An owl")
