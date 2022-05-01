@@ -11,5 +11,6 @@ be using Neural Network and Deep Learning Techniques.
 """)
 
 st.write("Here you can swipe through some examples from our Dataset")
+st.slider
 
 st.image('https://img.alicdn.com/imgextra/i3/817462628/O1CN01eLHBGX1VHfUMBA1du_!!817462628.jpg')
