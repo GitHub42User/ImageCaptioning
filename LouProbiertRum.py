@@ -13,7 +13,7 @@ with st.expander("The Dataset"):
 
 with col1:
     st.header("A cat")
-    st.image("https://static.streamlit.io/examples/cat.jpg")
+    st.image("https://sketch.com.vn/Upload/images/cach-ve-sinh-tam-pin-mat-troi-dung-cach-2%20(3)(1).jpg")
 
 with col2:
     st.header("NIKE Shoe")
