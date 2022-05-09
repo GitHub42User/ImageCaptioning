@@ -27,8 +27,8 @@ with st.expander("Random Picture"):
   st.write("Please press the following Button to get a random picture from our dataset.")
   if st.button('random button'):
      st.write('Why hello there')
- else:
-  st.write('not pressed yet')
+  else:
+     st.write('not pressed yet')
     
 with st.expander("Our Vision"):
   st.subheader("first subheader")
