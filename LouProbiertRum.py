@@ -26,7 +26,7 @@ with col3:
 with st.expander("Random Picture"):
   st.write("Please press the following Button to get a random picture from our dataset.")
   if st.button('random button'):
-     st.write('Why hello there')
+     st.balloons()
   else:
      st.write('not pressed yet')
     
