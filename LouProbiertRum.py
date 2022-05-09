@@ -23,6 +23,12 @@ with col3:
     st.header("Girl in a white dress")
     st.image("https://static2.yan.vn/YanNews/2167221/202004/co-luc-na-trat-duoc-khen-nuc-no-vi-qua-de-thuong-nho-tang-can-93c37ecb.jpeg")
     
+with st.expander("Random Picture"):
+  st.write("Please press the following Button to get a random picture from our dataset.")
+  if st.button('random button'):
+     st.write('Why hello there')
+ else:
+    
 with st.expander("Our Vision"):
   st.subheader("first subheader")
   st.write("Hello, we are Leon Lang, Jean Louis Fichtner and Loredana" 
