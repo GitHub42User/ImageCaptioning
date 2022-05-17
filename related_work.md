@@ -13,7 +13,7 @@ For our research we used:
 -   https://dl.acm.org/doi/pdf/10.1145/3295748
 -	Source: Google Schoolar
 -	Search term: Image Captioning
--	Description: g. Image captioning requires recognizing the important objects, their attributes, and their relationships in an image. It also needs to generate syntactically and semantically correct sentences. Deep-learning-based techniques are capable of handling the complexities and challenges of image captioning.
+-	Description: Image captioning requires recognizing the important objects, their attributes, and their relationships in an image. It also needs to generate syntactically and semantically correct sentences. Deep-learning-based techniques are capable of handling the complexities and challenges of image captioning.
 
 ### Image Captioning: Transforming Objects into Words: 
 -   https://proceedings.neurips.cc/paper/2019/file/680390c55bbd9ce416d1d69a9ab4760d-Paper.pdf
