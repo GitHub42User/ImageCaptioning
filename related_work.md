@@ -7,7 +7,7 @@ For our research we used:
 - Springer Link
 - PapersWithCode
 
-## Iiterature and Sources
+## Literature and Sources
 
 ### A Comprehensive Survey of Deep Learning for Image Captioning :
 -   https://dl.acm.org/doi/pdf/10.1145/3295748
