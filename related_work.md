@@ -29,7 +29,7 @@ For our research we used:
 
 ### Image Captioning With Semantic Attention:
 - https://openaccess.thecvf.com/content_cvpr_2016/html/You_Image_Captioning_With_CVPR_2016_paper.html
-- Source:Google Schoolar
+- Source: Google Schoolar
 - Search Term: image captioning neural network
 - Description: A new algorithm that combines both approaches through a model of semantic attention. Our algorithm learns to selectively attend to semantic concept proposals and fuse them into hidden states and outputs of recurrent neural networks. The selection and fusion form a feedback connecting the top-down and bottom-up computation
 
