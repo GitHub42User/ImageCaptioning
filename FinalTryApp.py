@@ -23,7 +23,6 @@ if not os.path.exists(os.path.abspath('.') + annotation_folder):
   annotation_file = os.path.dirname(annotation_zip)+'/annotations/captions_train2014.json'
   os.remove(annotation_zip)
   
-annotation_file = os.path.dirname(annotation_zip)+'/annotations/captions_train2014.json'
 # Download image files
 image_folder = '/train2014/'
 if not os.path.exists(os.path.abspath('.') + image_folder):
