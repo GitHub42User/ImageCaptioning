@@ -1,5 +1,6 @@
 import tensorflow as tf
-
+import streamlit as st
+import pandas as pd
 # You'll generate plots of attention in order to see which parts of an image
 # your model focuses on during captioning
 import matplotlib.pyplot as plt
@@ -82,7 +83,7 @@ def plot_attention(image, result, attention_plot):
     plt.show()
   
   
-@st.cache 
+@st.cache()
 def loadWebsite():
     caption_dataset = tf.data.Dataset.from_tensor_slices(train_captions)
 
