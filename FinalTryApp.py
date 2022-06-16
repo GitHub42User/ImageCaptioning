@@ -100,7 +100,7 @@ for img, path in image_dataset:
     path_of_feature = p.numpy().decode("utf-8")
     np.save(path_of_feature, bf.numpy())
     
- caption_dataset = tf.data.Dataset.from_tensor_slices(train_captions)
+caption_dataset = tf.data.Dataset.from_tensor_slices(train_captions)
 
 # We will override the default standardization of TextVectorization to preserve
 # "<>" characters, so we preserve the tokens for the <start> and <end>.
