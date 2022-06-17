@@ -448,7 +448,21 @@ with st.expander("Our vision..."):
    st.subheader("About our data…")
    st.write("Our dataset consists of X images which are randomly sorted. For the training we will not use the whole data set, because it has an enormous storage capacity (~ 240TB of data).Therefore, in advantage of time and costs we will use between 500-1000 pictures to train our data. We will delimit our data set to the topic 'public and urban ways of travel', as we think this is a suitable domain to start with when training your data.")
   
+def generateCaption(image_url):
+    image_extension = image_url[-4:]
+    image_path = tf.keras.utils.get_file('image'+image_extension, origin=image_url)
+
+    result, attention_plot = evaluate(image_path)
+    print('Prediction Caption:', ' '.join(result))
+    plot_attention(image_path, result, attention_plot)
+    # opening the image
+    finalImage = Image.open(image_path)
+    st.image(finalImage, caption= "überschrift")
+  
+  
 with st.expander("Here you can try our Image Captoning Program"):
   st.write("Please upload an image press the following Button.")
-  image_url = st.file_uploader("Choose a file")
+  imageToProcess = st.file_uploader("Choose a file")
+  if st.button('start Process'):
+    generateCaption(imageToProcess)
     
