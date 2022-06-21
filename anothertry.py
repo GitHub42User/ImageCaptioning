@@ -66,7 +66,6 @@ for image_path in train_image_paths:
   train_captions.extend(caption_list)
   img_name_vector.extend([image_path] * len(caption_list))
 
-@st.cache
 def load_image(image_path):
     img = tf.io.read_file(image_path)
     img = tf.io.decode_jpeg(img, channels=3)
