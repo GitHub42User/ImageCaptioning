@@ -66,11 +66,7 @@ for image_path in train_image_paths:
   train_captions.extend(caption_list)
   img_name_vector.extend([image_path] * len(caption_list))
 
-
-print(train_captions[0])
-Image.open(img_name_vector[0])
-
-
+@st.cache
 def load_image(image_path):
     img = tf.io.read_file(image_path)
     img = tf.io.decode_jpeg(img, channels=3)
@@ -106,6 +102,8 @@ caption_dataset = tf.data.Dataset.from_tensor_slices(train_captions)
 
 # We will override the default standardization of TextVectorization to preserve
 # "<>" characters, so we preserve the tokens for the <start> and <end>.
+
+@st.cache
 def standardize(inputs):
   inputs = tf.strings.lower(inputs)
   return tf.strings.regex_replace(inputs,
@@ -172,7 +170,7 @@ num_steps = len(img_name_train) // BATCH_SIZE
 features_shape = 2048
 attention_features_shape = 64
 
-
+@st.cache
 # Load the numpy files
 def map_func(img_name, cap):
   img_tensor = np.load(img_name.decode('utf-8')+'.npy')
@@ -190,12 +188,13 @@ dataset = dataset.shuffle(BUFFER_SIZE).batch(BATCH_SIZE)
 dataset = dataset.prefetch(buffer_size=tf.data.AUTOTUNE)
 
 class BahdanauAttention(tf.keras.Model):
+  @st.cache
   def __init__(self, units):
     super(BahdanauAttention, self).__init__()
     self.W1 = tf.keras.layers.Dense(units)
     self.W2 = tf.keras.layers.Dense(units)
     self.V = tf.keras.layers.Dense(1)
-
+  @st.cache
   def call(self, features, hidden):
     # features(CNN_encoder output) shape == (batch_size, 64, embedding_dim)
 
@@ -223,17 +222,19 @@ class BahdanauAttention(tf.keras.Model):
 class CNN_Encoder(tf.keras.Model):
     # Since you have already extracted the features and dumped it
     # This encoder passes those features through a Fully connected layer
+    @st.cache
     def __init__(self, embedding_dim):
         super(CNN_Encoder, self).__init__()
         # shape after fc == (batch_size, 64, embedding_dim)
         self.fc = tf.keras.layers.Dense(embedding_dim)
-
+    @st.cache
     def call(self, x):
         x = self.fc(x)
         x = tf.nn.relu(x)
         return x
     
 class RNN_Decoder(tf.keras.Model):
+  @st.cache
   def __init__(self, embedding_dim, units, vocab_size):
     super(RNN_Decoder, self).__init__()
     self.units = units
@@ -247,7 +248,7 @@ class RNN_Decoder(tf.keras.Model):
     self.fc2 = tf.keras.layers.Dense(vocab_size)
 
     self.attention = BahdanauAttention(self.units)
-
+  @st.cache
   def call(self, x, features, hidden):
     # defining attention as a separate model
     context_vector, attention_weights = self.attention(features, hidden)
@@ -271,7 +272,7 @@ class RNN_Decoder(tf.keras.Model):
     x = self.fc2(x)
 
     return x, state, attention_weights
-
+  @st.cache
   def reset_state(self, batch_size):
     return tf.zeros((batch_size, self.units))
 
@@ -282,7 +283,7 @@ optimizer = tf.keras.optimizers.Adam()
 loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
     from_logits=True, reduction='none')
 
-
+@st.cache
 def loss_function(real, pred):
   mask = tf.math.logical_not(tf.math.equal(real, 0))
   loss_ = loss_object(real, pred)
@@ -312,6 +313,7 @@ loss_plot = []
 
 
 @tf.function
+@st.cache
 def train_step(img_tensor, target):
   loss = 0
 
@@ -343,7 +345,7 @@ def train_step(img_tensor, target):
 
   return loss, total_loss
 
-
+@st.cache
 def evaluate(image):
     attention_plot = np.zeros((max_length, attention_features_shape))
 
@@ -379,7 +381,7 @@ def evaluate(image):
     attention_plot = attention_plot[:len(result), :]
     return result, attention_plot
 
-
+@st.cache
 def plot_attention(image, result, attention_plot):
     temp_image = np.array(Image.open(image))
 
